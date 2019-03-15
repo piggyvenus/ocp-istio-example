@@ -3,7 +3,7 @@
 Prerequisites:
 * You will have OpenShift Service Mesh operator installed on OpenShift
 * Installed Service Mesh
-* Configure `addmissionConfig` and allow automatic sidecar injection.
+* Configure `addmissionConfig` to enable automatic sidecar injection.
 See more details here
 https://docs.openshift.com/container-platform/3.11/servicemesh-install/servicemesh-install.html#updating-master-configuration
 
