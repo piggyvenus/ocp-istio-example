@@ -9,7 +9,7 @@ https://docs.openshift.com/container-platform/3.11/servicemesh-install/serviceme
 
 When you have your OpenShift Service Mesh installed on your OpenShift Container Platform. You will clone this repo for the labs below.
 
-Lab 1. Observability
+## Lab 1. Observability
 1. Web UI
 
 2. Grafanda: http://grafana-istio-system.<subdomain>
@@ -22,9 +22,9 @@ cat istiofiles/recommendation_requestcount.yml
 
 On Prometheus: istio_requests_total{destination_service="recommendation.demo.svc.cluster.local"}
 
-Lab 2. Ingress walkthrough
+## Lab 2. Ingress walkthrough
 
-Lab 3. Smart Routing
+## Lab 3. Smart Routing
 1. show round robin for all pods
 
 2. Apply all traffic to v1: oc apply -f virtual-service-all-v1.yaml -n bookinfo
@@ -34,7 +34,7 @@ Lab 3. Smart Routing
 4. Apply user identity: oc replace -f virtual-service-reviews-jason-v2-v3.yaml -n bookinfo
 
 
-Lab 4. Canary
+## Lab 4. Canary
 
 ```
 oc replace -f virtual-service-reviews-90-10.yaml -n bookinfo
@@ -43,7 +43,7 @@ oc replace -f virtual-service-reviews-10-90.yaml -n bookinfo
 oc replace -f  virtual-service-reviews-to-v2.yaml -n bookinfo
 ```
 
-Lab 5. Dark Launch/Mirroring
+## Lab 5. Dark Launch/Mirroring
 1. cd ../httpbin
 
 2. Oc project httpbin
@@ -57,7 +57,7 @@ sentTraffic.sh  & versionV2logs.sh
 5. sentTraffic.sh  & versionV2logs.sh
 
 
-Lab 6. Fault injection
+## Lab 6. Fault injection
 1. Cleanup bookinfo/review
 
 2. Oc project bookinfo
@@ -82,7 +82,7 @@ kubectl delete -f virtual-service-ratings-test-delay.yaml -n bookinfo
 kubectl delete -f virtual-service-reviews-test-v2.yaml -n bookinfo
 kubectl delete -f virtual-service-all-v1.yaml -n bookinfo
 ```
-Lab 7. Request timeout
+## Lab 7. Request timeout
 
 1. Make sure rules are cleaned for bookinfo app
 
@@ -105,7 +105,7 @@ kubectl apply -f  request-timeout-add-delay-to-rating.yaml -n bookinfo
 7. cleanup
 `kubectl delete -f virtual-service-all-v1.yaml -n bookinfo`
 
-Lab 8. Circuit Breaker
+## Lab 8. Circuit Breaker
 (https://github.com/redhat-developer-demos/istio-tutorial/blob/master/documentation/modules/ROOT/pages/5circuit-breaker.adoc)
 
 1. oc project demo
@@ -161,7 +161,7 @@ By simply adding a retry configuration to our current virtualservice, we’ll be
 
 13. cleanup
 
-Lab 9. Security
+## Lab 9. Security
 1. Run the following commands to show the pods in each namespace
 ```
 oc project test-mls
@@ -185,7 +185,7 @@ oc get meshpolicy default -o yaml
 ```
 This policy specifies that all workloads in the mesh will only accept encrypted requests using TLS. As you can see, this authentication policy has the kind: MeshPolicy. The name of the policy must be default, and it contains no targets specification (as it is intended to apply to all services in the mesh).
 
-Lab 10. Egress Traffic
+## Lab 10. Egress Traffic
 1. `oc project egress`
 
 2. Web UI >> Egress project
